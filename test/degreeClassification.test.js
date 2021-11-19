@@ -77,3 +77,20 @@ decisionTableTestCases.forEach(testCase => {
       .toBe(testCase.expectedOutput);
   });
 });
+
+// Control Flow Testing
+const controlFLowTestCases = [
+  { gradePointAverage: -1, expectedOutput: "Input không hợp lệ" },
+  { gradePointAverage: 3.75, expectedOutput: "Bằng xuất sắc"},
+  { gradePointAverage: 3.44, expectedOutput: "Bằng giỏi"},
+  { gradePointAverage: 2.67, expectedOutput: "Bằng khá" },
+  { gradePointAverage: 2.0, expectedOutput: "Bằng trung bình" },
+  { gradePointAverage: 1.55, expectedOutput: "Không tốt nghiệp" },
+]
+
+controlFLowTestCases.forEach(testCase => {
+  it(`GPA: ${testCase.gradePointAverage} - Degree: ${testCase.expectedOutput}`, () => {
+    expect(Degree.basicDegreeClassification(testCase.gradePointAverage))
+      .toBe(testCase.expectedOutput);
+  });
+});
