@@ -94,3 +94,16 @@ controlFLowTestCases.forEach(testCase => {
       .toBe(testCase.expectedOutput);
   });
 });
+
+// Data Flow Testing
+const dataFLowTestCases = [
+  { gradePointAverage: -1.43, expectedOutput: "Input không hợp lệ" },
+  { gradePointAverage: 3.86, expectedOutput: "Bằng xuất sắc"}
+]
+
+dataFLowTestCases.forEach(testCase => {
+  it(`GPA: ${testCase.gradePointAverage} - Degree: ${testCase.expectedOutput}`, () => {
+    expect(Degree.basicDegreeClassification(testCase.gradePointAverage))
+      .toBe(testCase.expectedOutput);
+  });
+});
